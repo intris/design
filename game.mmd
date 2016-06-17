@@ -1,0 +1,8 @@
+graph TD
+  Keyboard -- key events --> KeyMapper
+  Storage:Keyboard -- key settings --> KeyMapper
+  KeyMapper -- mapped key events --> KeyStore
+  Storage:Engine -- engine settings --> Engine
+  Ticker --> Engine
+  KeyStore --> Engine
+  Engine -- engine state --> Renderer
