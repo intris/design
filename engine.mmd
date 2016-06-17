@@ -1,0 +1,16 @@
+graph LR
+  Initial --> Create
+  subgraph Loop
+    Create --> Delay:Show
+    Delay:Show --> Show
+    Show --> Delay:Drop
+    subgraph Drop
+      Delay:Drop --> Drop
+      Drop --> Delay:Drop
+    end
+    Drop -- cannot drop --> Delay:Lock
+    Delay:Lock -- can drop --> Delay:Drop
+    Delay:Lock --> Lock
+    Lock --> Create
+  end
+  Create -- cannot place --> End
