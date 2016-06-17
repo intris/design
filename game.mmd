@@ -4,5 +4,5 @@ graph TD
   KeyMapper -- mapped key events --> KeyStore
   Storage:Engine -- engine settings --> Engine
   Ticker --> Engine
-  KeyStore --> Engine
+  KeyStore -- key state --> Engine
   Engine -- engine state --> Renderer
