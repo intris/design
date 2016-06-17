@@ -1,7 +1,9 @@
 graph TD
-  Keyboard -- key events --> KeyMapper
-  Storage:Keyboard -- key settings --> KeyMapper
-  KeyMapper -- mapped key events --> KeyStore
+  subgraph Input
+    Keyboard -- key events --> KeyMapper
+    Storage:Keyboard -- key settings --> KeyMapper
+    KeyMapper -- mapped key events --> KeyStore
+  end
   Storage:Engine -- engine settings --> Engine
   Ticker --> Engine
   KeyStore -- key state --> Engine
