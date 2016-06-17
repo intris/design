@@ -4,7 +4,7 @@ graph TD
     Storage:Keyboard -- key settings --> KeyMapper
     KeyMapper -- mapped key events --> KeyStore
   end
-  Storage:Engine -- engine settings --> Engine
-  Ticker --> Engine
   KeyStore -- key state --> Engine
+  Ticker --> Engine
+  Storage:Engine -- engine settings --> Engine
   Engine -- engine state --> Renderer
