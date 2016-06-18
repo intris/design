@@ -3,13 +3,15 @@ graph LR
   subgraph Loop
     Create --> Delay:Show
     Delay:Show --> Show
-    Show --> Delay:Drop
+    Show --> Pending:Drop
     subgraph Drop
+      Pending:Drop -- can drop --> Delay:Drop
       Delay:Drop --> Drop
-      Drop --> Delay:Drop
+      Drop --> Pending:Drop
+      Delay:Drop -- move block --> Pending:Drop
     end
-    Drop -- cannot drop --> Delay:Lock
-    Delay:Lock -- can drop --> Delay:Drop
+    Pending:Drop -- cannot drop --> Delay:Lock
+    Delay:Lock -- move block --> Pending:Drop
     Delay:Lock --> Lock
     Lock --> Create
   end
