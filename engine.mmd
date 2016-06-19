@@ -9,10 +9,10 @@ graph LR
       Check:Drop -- can drop --> Delay:Drop
       Delay:Drop --> Drop
       Drop --> Check:Drop
-      Delay:Drop -- move block --> Check:Drop
+      Delay:Drop -- cannot drop --> Check:Drop
     end
     Check:Drop -- cannot drop --> Delay:Lock
-    Delay:Lock -- move block --> Check:Drop
+    Delay:Lock -- can drop --> Check:Drop
     Delay:Lock --> Lock
     Lock --> Create
   end
