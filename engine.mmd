@@ -13,7 +13,11 @@ graph LR
     end
     Check:Drop -- cannot drop --> Delay:Lock
     Delay:Lock -- can drop --> Check:Drop
+    Delay:Drop -- hold --> Hold
+    Delay:Lock -- hold --> Hold
+    Hold --> Check:Dead
     Delay:Lock --> Lock
-    Lock --> Create
+    Lock --> ClearLines
+    ClearLines --> Create
   end
   Check:Dead --> End
